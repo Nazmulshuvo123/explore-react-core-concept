@@ -2,6 +2,7 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import Todo from "./Todo";
 
 function App() {
   // Main component
@@ -9,14 +10,24 @@ function App() {
   return (
     <>
       <h1>Vite + React</h1>
-      <Device name="laptop" price="55000"></Device>
+      <Todo 
+        task= "Learn React" 
+        isDone={true}></Todo>
+      <Todo 
+        task= "Learn Core Concept" 
+        isDone={false}></Todo>
+      <Todo 
+        task= "Try JSX" 
+        isDone={true}></Todo>
+
+      {/* <Device name="laptop" price="55000"></Device>
       <Device name="mobile" price="34000"></Device>
       <Device name="mobile" price="3000"></Device>
       <Person></Person>
-      <Student grad= "4" mark="98"></Student>
+      <Student grade= "4" mark="98"></Student>
+      <Student  grade={5} mark="90"></Student>
       <Student></Student>
-      <Student></Student>
-      <Developer></Developer>
+      <Developer></Developer> */}
     </>
   );
 }
@@ -36,13 +47,15 @@ function Person() {
   );
 }
 
-function Student(props) {
-  console.log(props)
+const {grade, mark} = {grade: "4", mark:"98"};
+
+function Student({grade=1, mark=50}) {
+  console.log(grade, mark)
   return (
     <div className="student">
       <h3>This is a student</h3>
-      <h4>Name:</h4>
-      <h5>Age:</h5>
+      <h4>Class: {grade}</h4>
+      <h5>Score: {mark}</h5>
     </div>
   );
 }
