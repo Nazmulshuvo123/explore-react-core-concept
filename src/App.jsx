@@ -3,14 +3,43 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import Todo from "./Todo";
+import Actor from "./Actor";
+import Singers from "./Singers";
+import BookStore from "./BookStore";
 
 function App() {
   // Main component
+  const books = [
+    {id: 1, name: 'Bangla', price: 199},
+    {id: 2, name: 'English', price: 200},
+    {id: 3, name: 'Math', price: 320},
+    {id: 4, name: 'Physics', price: 188},
+  ]
 
+  const actors = ['shakib', 'rubel', 'Josim', 'Manna', 'Rajib']
+  const singers = [
+    {id: 1, name:'Atif Aslam', age: 34},
+    {id: 2, name:'Arijit Sing', age: 35},
+    {id: 3, name:'Kumar shanu', age: 60},
+    {id: 4, name:'Natasha Malkova', age: 32},
+  ]
   return (
     <>
       <h1>Vite + React</h1>
-      <Todo 
+      <BookStore books={books}></BookStore>
+
+      {
+        singers.map(singer => <Singers singer={singer}></Singers>)
+      }
+
+
+
+      <Actor name={'Bappa Raz'}></Actor>
+      {
+        actors.map(actor =><Actor name={actor}></Actor>)
+      }
+
+      {/* <Todo 
         task= "Learn React" 
         isDone={true}></Todo>
       <Todo 
@@ -18,7 +47,7 @@ function App() {
         isDone={false}></Todo>
       <Todo 
         task= "Try JSX" 
-        isDone={true}></Todo>
+        isDone={true}></Todo> */}
 
       {/* <Device name="laptop" price="55000"></Device>
       <Device name="mobile" price="34000"></Device>
